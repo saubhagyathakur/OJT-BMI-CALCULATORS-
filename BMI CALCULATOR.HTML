@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ashaka Education Pvt. Ltd.</title>
+  <style>
+    /* ===== Global Styles ===== */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #c0b0b0;
+      color: #333;
+    }
+
+    header {
+      background: #004080;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background: #333;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #fff;
+      padding: 14px 20px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: #575757;
+    }
+
+    .hero {
+      background: url('https://source.unsplash.com/1600x600/?education,students') no-repeat center center/cover;
+      color: #fff;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+      background: #fff;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+
+    h2 {
+      color: #004080;
+      margin-bottom: 10px;
+    }
+
+    .courses, .online-courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .course, .online-course {
+      background: #e6f2ff;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .course:hover, .online-course:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: #004080;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+
+    button {
+      background: #004080;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #003366;
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== Header ===== -->
+  <header>
+    <h1>Ashaka Education Pvt. Ltd.</h1>
+    <p>Urban-Level Education for Rural India</p>
+  </header>
+
+  <!-- ===== Navigation ===== -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#courses">Offline Courses</a>
+    <a href="#online">Online Courses</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="hero">
+    <h1>Welcome to Ashaka Education</h1>
+    <p>Empowering students in tier-3 and tier-4 cities with quality education.</p>
+  </section>
+
+  <!-- ===== About Section ===== -->
+  <div class="container" id="about">
+    <h2>About Us</h2>
+    <p>
+      Founded in 2021, Ashaka Education Pvt. Ltd. is committed to providing
+      high-quality education in rural India. We offer courses in Commerce, Arts,
+      English, and Computer Science up to 12th standard, along with useful online learning opportunities.
+    </p>
+  </div>
+
+  <!-- ===== Offline Courses Section ===== -->
+  <div class="container" id="courses">
+    <h2>Our Offline Courses</h2>
+    <div class="courses">
+      <div class="course">
+        <h3>Commerce</h3>
+        <p>Accounting, Business Studies, Economics</p>
+      </div>
+      <div class="course">
+        <h3>Arts</h3>
+        <p>History, Political Science, Sociology</p>
+      </div>
+      <div class="course">
+        <h3>English</h3>
+        <p>Grammar, Literature, Communication Skills</p>
+      </div>
+      <div class="course">
+        <h3>Computer Science</h3>
+        <p>Basics of Programming, Digital Literacy</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Online Courses Section ===== -->
+  <div class="container" id="online">
+    <h2>Useful Online Courses</h2>
+    <div class="online-courses" id="onlineCoursesList">
+      <!-- Courses will be injected here by JavaScript -->
+    </div>
+    <button onclick="loadCourses()">Load Online Courses</button>
+  </div>
+
+  <!-- ===== Contact Section ===== -->
+  <div class="container" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: info@ashakaeducation.com</p>
+    <p>Phone: +91-XXXXXXXXXX</p>
+    <p>Address: Patna, Bihar, India</p>
+  </div>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>&copy; 2026 Ashaka Education Pvt. Ltd. | All Rights Reserved</p>
+  </footer>
+
+  <!-- ===== JavaScript ===== -->
+  <script>
+    // Useful online courses data
+    const onlineCourses = [
+      { title: "Web Development Basics", description: "Learn HTML, CSS, and JavaScript from scratch." },
+      { title: "Python Programming", description: "Introduction to Python for beginners." },
+      { title: "Digital Marketing", description: "Master SEO, social media, and online branding." },
+      { title: "Data Science Fundamentals", description: "Learn data analysis and visualization techniques." },
+      { title: "Communication Skills", description: "Improve public speaking, writing, and presentation skills." }
+    ];
+
+    function loadCourses() {
+      const list = document.getElementById("onlineCoursesList");
+      list.innerHTML = "";
+      onlineCourses.forEach(course => {
+        const div = document.createElement("div");
+        div.className = "online-course";
+        div.innerHTML = `<h3>${course.title}</h3><p>${course.description}</p>`;
+        list.appendChild(div);
+      });
+    }
+  </script>
+</body>
+</html>
